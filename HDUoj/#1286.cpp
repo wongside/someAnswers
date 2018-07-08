@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
 using namespace std;
-#define LOCAL 1
+#define LOCAL 0
 
 //返回小于n且与n互质的数的个数 
 int euler(int n){ 
@@ -21,7 +21,6 @@ int euler(int n){
 	return ans;
 }
 
-
 int main(){   
 #if LOCAL
 	freopen ("datain.txt","r",stdin);
@@ -35,7 +34,6 @@ int main(){
 		cin >> t;
 		cout << euler(t) << endl;
 	}
-	
-	
+		
 	return 0;
 }
