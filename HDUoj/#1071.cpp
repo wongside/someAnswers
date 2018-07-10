@@ -29,6 +29,7 @@ int main(){
 		t = y2 - k * x2;
         s = ((a / 3)*x3*x3*x3 + ((b-k)/2)*x3*x3 + (c-t)*x3)
         		- ((a / 3)*x2*x2*x2 + ((b-k)/2)*x2*x2 + (c-t)*x2);
+        //round-off 
 		int m = s * 100 + 0.5;
 		s = m / 100.0;
 		printf("%0.2f\n",s);
