@@ -18,14 +18,17 @@ int main(){
 	int t,m;
 	cin >> t >> m;
 	for(int i = 0; i < m; i++){
-		cin >> tim[i] >> val[i];
-		
+		cin >> tim[i] >> val[i];		
 	}
 	
 	for(int i = 0; i < m; i++){
 		for(int v = t; v >= tim[i]; v--){
-			if(f[v - tim[i]] + val[i] > f[v])
+			
+			if(f[v - tim[i]] + val[i] > f[v]){
+//				cout << f[v] << endl;
 				f[v] = f[v - tim[i]] + val[i];
+			}
+				
 		}
 	}
 	cout << f[t];
