@@ -3,15 +3,10 @@
 using namespace std;
 #define LOCAL 0
 
-struct Data {
-	int x;
-	int y;
-};
-Data data[105];
+int tim[101];
+int val[101];
+int f[1001];
 
-bool cmp(Data a,Data b){
-	return (float)a.y / a.x > (float)b.y / b.x;
-}
 
 int main(){
 	//文件重定向 
@@ -20,19 +15,20 @@ int main(){
     freopen ("dataout.txt","w",stdout);
 #endif
 	
-	int T,M;
-	cin >> T >> M;
-	for(int i = 0; i < M; i++){		
-		cin >> data[i].x >> data[i].y;
+	int t,m;
+	cin >> t >> m;
+	for(int i = 0; i < m; i++){
+		cin >> tim[i] >> val[i];
+		
 	}
-	sort(data,data + M,cmp);
-	int sum = 0;
-	for(int i = 0; i < M; i++){
-		if(T - data[i].x >= 0){
-			sum += data[i].y;
-			T -= data[i].x;
+	
+	for(int i = 0; i < m; i++){
+		for(int v = t; v >= tim[i]; v--){
+			if(f[v - tim[i]] + val[i] > f[v])
+				f[v] = f[v - tim[i]] + val[i];
 		}
 	}
-	cout << sum;
+	cout << f[t];
+	
 	return 0;
 }
