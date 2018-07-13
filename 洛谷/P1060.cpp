@@ -1,14 +1,12 @@
 #include <iostream>
-#include <map>
-#include <algorithm>
 using namespace std;
-#define LOCAL 1
+#define LOCAL 0
 
-multimap<int,int> m;
-int tab[30];
-int cmp(int a,int b){
-	return a > b;
-}
+
+int v[30];
+int p[30];
+int f[30001];
+
 int main(){
 	//文件重定向 
 #if LOCAL
@@ -16,21 +14,19 @@ int main(){
     freopen ("dataout.txt","w",stdout);
 #endif
 	
-	int N,m;
-	cin >> N >> m;
-	for(int i = 0; i < m; i++){
-		int t1,t2;
-		cin >> t1 >> t2;
-		
+	int n,m;
+	cin >> n >> m;
+	for(int i = 0; i < m; i++){		
+		cin >> v[i] >> p[i];		
 	}
-	sort(tab,tab+m,cmp);
-	int sum = N;
 	for(int i = 0; i < m; i++){
-		if(sum - tab[i] >= 0){
-			sum -= tab[i];
+		for(int j = n; j >= v[i]; j--){
+			if(f[j - v[i]] + v[i]*p[i] > f[j]){
+				f[j] = f[j - v[i]] + v[i]*p[i];
+			}
 		}
 	}
-	cout << N - sum << endl;
+	cout << f[n] << endl;
 	
 	
 	
