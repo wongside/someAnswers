@@ -1,19 +1,21 @@
 #include <iostream>
 using namespace std;
-#define LOCAL 0
+#define LOCAL 1
 
 
-int t[101];
-long long f[10001];
-
-int main(){
-	//文件重定向 
+int main(){   
 #if LOCAL
 	freopen ("datain.txt","r",stdin);
     freopen ("dataout.txt","w",stdout);
 #endif
 	
-	printf("");
+	int n;
+	string s;
+	cin >> n;
+	for(int i = 0; i < n; i++){
+		cin >> s;
+		 
+	} 
 	
 	return 0;
 }
