@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 using namespace std;
 
 string int_to_string(int n){
@@ -9,15 +10,10 @@ string int_to_string(int n){
 }
 
 int main(){
-		
-//	string s = "";
-//	for(int i = 0; i < 10; i++){
-//		s += int_to_string(i);
-//	}
-//	cout << s;	
+	
 	int n,t;
 	cin >> n;
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i <= n; i++){
 		cin >> t;
 		string s = "";
 		if(t > 0){
@@ -31,7 +27,12 @@ int main(){
 		}else if(t == 0){
 			continue;
 		}
+		
 		s += int_to_string(t);
+		if(t == 1 || t == -1){
+			if(i != n) 
+			s = s.substr(0,s.length()-1);
+		}
 		int tmp = n-i;
 		if(tmp > 1){
 			s += "x^";
