@@ -7,19 +7,25 @@ string stand(string s){
 		s[i] = tolower(s[i]);
 	} 
 	return s;
+	
 }
 
 int main(){
-	freopen("datain.txt","r",stdin);
-	freopen("dataout.txt","w",stdout);
+//	freopen("datain.txt","r",stdin);
+//	freopen("dataout.txt","w",stdout);
 	char ch;
 	int sum = 0, first = -1,w = 0;
 	string s;
 	cin >> s;
 	string word = stand(s);
-	while(!isalpha(ch = getchar()));
-	while(ch != '\n' && ch != EOF){
+	while((ch = getchar()) != '\n');
+//	cout << "a" << ch << "b";
+	while(1){
 		string t = "";
+		while((ch = getchar()) == ' ');
+		if(ch == '\n' || ch == EOF){
+			break;
+		}
 		t += ch;
 		while(isalpha(ch = getchar())){
 			t += ch;
@@ -30,8 +36,7 @@ int main(){
 				first = w;
 			}
 		}
-		w++;
-		while((ch = getchar()) == ' ');
+		w++;		
 	}
 	if(first == -1){
 		cout << -1;
