@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int a[100000+10];
@@ -35,7 +36,7 @@ int main(){
 	for(int i = 0; i < n; i++){
 		cin >> a[i];
 	}
-	quickSort(a,0,n-1);
+	sort(a,a+n);
 	for(int i = 0; i < n; i++){
 		cout << a[i];
 		if(i < n-1){
