@@ -19,7 +19,6 @@ int f(S a, S b){
 }
 
 
-
 int main(){
 	int n, gra, sco, pap, sum = 0; 
 	string name, gan, xibu;
