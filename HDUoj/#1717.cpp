@@ -1,21 +1,31 @@
 #include <iostream>
+#include <string>
 using namespace std;
-#define LOCAL 1
 
-
-int main(){   
-#if LOCAL
-	freopen ("datain.txt","r",stdin);
-    freopen ("dataout.txt","w",stdout);
-#endif
-	
-	int n;
-	string s;
+int main(){
+	string a, b, s;
+	int n, len, i;
 	cin >> n;
-	for(int i = 0; i < n; i++){
+	while(n--){
 		cin >> s;
-		 
-	} 
+		
+		a = s.substr() s.find('(');
+		
+		
+		len = s.length();
+		a = -1;
+		b = -1;
+		for(i = 2; i < len && s[i] != '('; i++){
+			a *= 10;
+			a += s[i] - '0';
+		}
+		for(i++; i < len && s[i] != ')'; i++){
+			b *= 10;
+			b += s[i] - '0';
+		}
+		cout << a << b << endl;
+	}
+	
 	
 	return 0;
-}
+} 
