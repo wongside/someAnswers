@@ -2,10 +2,7 @@
 using namespace std;
 
 int main(){
-	
-	
 	int c, p = 1;
-
 	while((c = getchar()) != EOF){
 		if(c == '"'){
 			if(p == 1){
