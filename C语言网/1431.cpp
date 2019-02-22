@@ -30,7 +30,7 @@ int main(){
 		if(ok()){
 			break;
 		}
-		for(int i = 0; i < n; i++){			
+		for(int i = 0; i < n; i++){
 			if(tab[i]%2 == 1){
 				tab[i]++;
 				ans++;
