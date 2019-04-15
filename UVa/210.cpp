@@ -1,9 +1,9 @@
 #include <iostream>
 #include <queue>
+#include <memory.h>
 using namespace std;
 
-queue<int> ready;
-queue<int> lockq;
+
 char program[1005][10];
 int nowLine[1005];
 int nowUnlock = 0;
@@ -17,6 +17,12 @@ int main(){
 	int n, t[6], q;
 	cin >> T;
 	while(T--){
+		x = 0;
+		memset(program, 0, sizeof(program));
+		memset(nowLine, 0, sizeof(nowLine));
+		memset(var, 0, sizeof(var));
+		queue<int> ready;
+		queue<int> lockq;
 		cin >> n >> t[1] >> t[2] >> t[3] >> t[4] >> t[5] >> q;
 		cin.getline(program[0], 10);		//去除换行符 
 		for(int i = 1; i <= n; i++){		//读入N个程序 
@@ -29,8 +35,13 @@ int main(){
 		}
 		int time, pid;
 		time = q;							//当前程序的剩余时间 
-		pid = ready.front();				//取出一个程序pid 
-		ready.pop();
+		if(ready.size() <= 0){
+			pid = 0;
+		}else{
+			pid = ready.front();				//取出一个程序pid 
+			ready.pop();
+		}							
+		
 		while(pid != 0){					//还有程序要执行 
 			switch(program[nowLine[pid]][2]){//判断语句类型 
 				case '=':
